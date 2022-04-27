@@ -1,0 +1,58 @@
+extends layout
+
+block content
+  h1 S-H-A-I-U-P (save-html-as-image-use-playwright)
+  hr
+  h3 网页截图下载接口
+  h2 示例
+  a(href='http://localhost:3000/screenshot?url=http%3A%2F%2Fwww.baidu.com') http://localhost:3000/screenshot?url=http%3A%2F%2Fwww.baidu.com
+  h2 基本信息
+  ul
+    li
+      h3 接口URL: /screenshot
+    li 
+      h3 请求方式: GET
+  h2 请求参数
+  table
+    thead
+      tr
+        th 参数名
+        th 示例值
+        th 是否必填
+        th 描述
+    tbody
+      tr
+        td url
+        td http%3A%2F%2Fwww.baidu.com
+        td 是
+        td 目标网页地址，需要进行转码，例如 encodeURIComponent('http://www.baidu.com') => 'http%3A%2F%2Fwww.baidu.com'
+      tr
+        td selector
+        td body 或 .cls
+        td 否
+        td css选择器，设置该值会截取网页中指定部分图片，需要进行转码，encodeURIComponent('#id')
+      tr
+        td fullPage
+        td 1或0
+        td 否
+        td 当为 1 时，截取整个可滚动页面的屏幕截图，而不是当前可见的视口。默认为0
+      tr
+        td quality
+        td 
+        td 否
+        td 图像的质量，介于 0-100 之间。不适用于png图像
+      tr
+        td type
+        td "png"或"jpeg"
+        td 否
+        td 指定截图类型，默认为png
+      tr
+        td timeout
+        td 
+        td 否
+        td 最大等待时间，以毫秒为单位，默认为 30 秒
+      tr
+        td base64
+        td 1或0
+        td 否
+        td 当为 1 时，将返回图片的base64编码，而不是图片流。默认为0
